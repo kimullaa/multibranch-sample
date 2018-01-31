@@ -1,8 +1,5 @@
 node {
-  properties([[$class: 'BuildDiscarderProperty',
-    strategy: [$class: 'LogRotator', 
-      numToKeepStr: '5', artifactNumToKeepStr: '5']
-  ]])
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')), pipelineTriggers([])])
 
   print "build..."
 }
